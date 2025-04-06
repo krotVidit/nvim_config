@@ -57,6 +57,36 @@ return {
 --      ["<leader>ъ"] = { "<cmd>BufferLineCycleNext<CR>", "Следующий буфер" },
 --      ["<leader>ф"] = { "<C-w>h", "Окно влево" },
 --      ["<leader>в"] = { "<C-w>l", "Окно вправо" },
+        
+wk.register({
+  ["<leader>k"] = {
+    name = "Работа с кодом",
+    d = { vim.lsp.buf.definition, "Перейти к определению" },
+    i = { vim.lsp.buf.implementation, "Реализация" },
+    D = { vim.lsp.buf.declaration, "Перейти к объявлению" },
+    k = { vim.lsp.buf.hover, "Документация" },
+    a = { vim.lsp.buf.code_action, "Действия с кодом" },
+    f = { function() vim.lsp.buf.format({ async = true }) end, "Форматировать код" },
+    s = { vim.diagnostic.open_float, "Диагностика" },
+  },
+  
+  ["<leader>m"] = {
+    name = "Mason & LSP",
+    r = { vim.lsp.buf.references, "Ссылки на символ" },
+    R = { vim.lsp.buf.rename, "Переименовать символ" },
+    l = { "<cmd>Mason<CR>", "Открыть Mason" },
+    u = { "<cmd>MasonUpdate<CR>", "Обновить Mason" },
+    I = { "<cmd>LspInfo<CR>", "Информация о LSP" },
+  },
+
+  ["<leader>l"] = {
+    name = "Laravel",
+    a = { "<cmd>!php artisan<CR>", "Artisan" },
+    m = { "<cmd>!php artisan make:<CR>", "Make" },
+    r = { "<cmd>!php artisan route:list<CR>", "Routes" },
+  }
+})
+
 
       })
     end,
