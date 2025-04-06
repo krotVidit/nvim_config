@@ -51,6 +51,8 @@ return {
               added = "",
               modified = "",
               deleted = "",
+              renamed = "➜",
+              untracked = "",
             },
           },
         },
